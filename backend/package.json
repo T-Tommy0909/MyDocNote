@@ -1,0 +1,26 @@
+{
+  "devDependencies": {
+    "prisma": "^4.5.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.5.0",
+    "@types/node": "^18.11.2",
+    "fastify": "^4.9.2",
+    "fastify-auth0-verify": "^0.8.3",
+    "fastify-autoload": "^3.13.0",
+    "fastify-cli": "^5.5.0",
+    "fastify-cors": "^6.1.0",
+    "typescript": "^4.8.4"
+  },
+  "name": "MyDocNote-back",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server.js",
+    "build": "tsc",
+    "prisma:generate": "prisma generate"
+  },
+  "main": "index.js",
+  "repository": "git@github.com:T-Tommy0909/MyDocNote-back.git",
+  "author": "T-Tommy0909 <tomisawa0909tomi@gmail.com>",
+  "license": "MIT"
+}
