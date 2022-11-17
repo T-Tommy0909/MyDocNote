@@ -37,6 +37,19 @@ services:
       - ./frontend:/app:delegated
       - /app/node_modules
     command: "yarn start"
+  prisma-studio:
+    build: ./backend
+    image: mydocnote_back:latest
+    environment:
+      - DATABASE_URL=postgresql://mydocnote:0000@postgres:5432/mydb?schema=public
+    ports:
+      - "5555:5555"
+    volumes:
+      - ./backend/prisma:/app/prisma:delegated
+    command: "npx prisma studio"
+    depends_on:
+      - postgres
+      - back
     
 volumes:
   postgres:
