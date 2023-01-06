@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { useHtml } from "../utils/apis/gethtml";
+import { WordsBlock } from "../components/root/WordsBlock";
 
 export const Root: FC = () => {
   const { html, isLoading } = useHtml();
@@ -10,7 +11,7 @@ export const Root: FC = () => {
       {!isLoading && (
         <div>
           <div>root page</div>
-          <div>{html}</div>
+          <div>{html && WordsBlock(html)}</div>
         </div>
       )}
     </div>
