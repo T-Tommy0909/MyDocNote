@@ -3,14 +3,14 @@ import cheerio from "cheerio";
 
 import { requestGet } from "../axios";
 
-export const htmlGet = async (url: string): Promise<any> => {
-  const { data } = await requestGet<any>(url);
+export const htmlGet = async (url: string): Promise<string[]> => {
+  const { data } = await requestGet<string>(url);
 
   const $ = cheerio.load(data);
-  const word_arr: any = [];
+  let word_arr: string[] = [];
   const separatorString = /[^a-z|^A-Z]+/;
   $("p,h1,h2,h3,h4", data).each((i, elem) => {
-    word_arr.push($(elem).text().split(separatorString));
+    word_arr = word_arr.concat($(elem).text().split(separatorString));
   });
 
   return word_arr;
